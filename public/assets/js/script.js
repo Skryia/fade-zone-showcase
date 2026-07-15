@@ -73,37 +73,38 @@
   // ---------- Gallery ----------
   // Unsplash placeholder photos of men's barber cuts / grooming.
   // Replace with real images from assets/images/gallery/ when ready.
+  // thumb  = small grid image, full = lightbox image
   const galleryImages = [
-    'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1596728325488-58c87691e9af?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1521490878406-df877274365f?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80'
+    {thumb:'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1596728325488-58c87691e9af?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1596728325488-58c87691e9af?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1521490878406-df877274365f?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1521490878406-df877274365f?auto=format&fit=crop&w=1400&q=85'},
+    {thumb:'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1400&q=85'}
   ];
   const gallery = document.getElementById('gallery');
-  galleryImages.forEach((src, i) => {
+  galleryImages.forEach((img, i) => {
     const div = document.createElement('div');
     div.className = 'gallery__item';
-    div.innerHTML = `<img src="${src}" alt="Fade Zone haircut ${i+1}" loading="lazy" />`;
+    div.innerHTML = `<img src="${img.thumb}" alt="Fade Zone haircut ${i+1}" loading="lazy" />`;
     div.addEventListener('click', () => openLightbox(i));
     gallery.appendChild(div);
   });
 
   // Instagram grid – uses subset of same
   const ig = document.getElementById('igGrid');
-  galleryImages.slice(0,6).forEach((src,i) => {
+  galleryImages.slice(0,6).forEach((img,i) => {
     const a = document.createElement('a');
     a.href = 'https://www.instagram.com/fadezone_barbers1/';
     a.target = '_blank'; a.rel = 'noopener';
     a.className = 'ig-item';
-    a.innerHTML = `<img src="${src}" alt="Fade Zone instagram ${i+1}" loading="lazy" />`;
+    a.innerHTML = `<img src="${img.thumb}" alt="Fade Zone instagram ${i+1}" loading="lazy" />`;
     ig.appendChild(a);
   });
 
@@ -111,9 +112,9 @@
   const lb = document.getElementById('lightbox');
   const lbImg = lb.querySelector('.lightbox__img');
   let lbIndex = 0;
-  function openLightbox(i){ lbIndex = i; lbImg.src = galleryImages[i]; lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function openLightbox(i){ lbIndex = i; lbImg.src = galleryImages[i].full; lb.classList.add('open'); document.body.style.overflow='hidden'; }
   function closeLightbox(){ lb.classList.remove('open'); document.body.style.overflow=''; }
-  function lbNav(dir){ lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length; lbImg.src = galleryImages[lbIndex]; }
+  function lbNav(dir){ lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length; lbImg.src = galleryImages[lbIndex].full; }
   lb.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
   lb.querySelector('.lightbox__prev').addEventListener('click', () => lbNav(-1));
   lb.querySelector('.lightbox__next').addEventListener('click', () => lbNav(1));
