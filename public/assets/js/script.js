@@ -113,15 +113,15 @@
   let lbIndex = 0;
   function openLightbox(i){ lbIndex = i; lbImg.src = galleryImages[i]; lb.classList.add('open'); document.body.style.overflow='hidden'; }
   function closeLightbox(){ lb.classList.remove('open'); document.body.style.overflow=''; }
-  function nav(dir){ lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length; lbImg.src = galleryImages[lbIndex]; }
+  function lbNav(dir){ lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length; lbImg.src = galleryImages[lbIndex]; }
   lb.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
-  lb.querySelector('.lightbox__prev').addEventListener('click', () => nav(-1));
-  lb.querySelector('.lightbox__next').addEventListener('click', () => nav(1));
+  lb.querySelector('.lightbox__prev').addEventListener('click', () => lbNav(-1));
+  lb.querySelector('.lightbox__next').addEventListener('click', () => lbNav(1));
   lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') nav(-1);
-    if (e.key === 'ArrowRight') nav(1);
+    if (e.key === 'ArrowLeft') lbNav(-1);
+    if (e.key === 'ArrowRight') lbNav(1);
   });
 })();
