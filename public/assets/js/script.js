@@ -88,7 +88,7 @@
     {thumb:'https://images.unsplash.com/photo-1521490878406-df877274365f?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1521490878406-df877274365f?auto=format&fit=crop&w=1400&q=85'},
     {thumb:'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=400&q=75', full:'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1400&q=85'}
   ];
-  const gallery = document.getElementById('gallery');
+  const gallery = document.getElementById('galleryGrid');
   galleryImages.forEach((img, i) => {
     const div = document.createElement('div');
     div.className = 'gallery__item';
