@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 // so it can be dropped straight onto GitHub Pages. This route just previews it.
 function Index() {
   useEffect(() => {
-    window.location.replace("/index.html");
+    window.location.replace("./index.html");
   }, []);
   return (
     <div style={{ minHeight: "100vh", background: "#0a0a0a", color: "#c9a24b", display: "grid", placeItems: "center", fontFamily: "system-ui" }}>
